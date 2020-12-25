@@ -1,0 +1,109 @@
+{% extends 'home/main.html' %}
+
+{% block content %}
+<style>
+    .box-block{
+        border-radius: 6px;
+    }
+    .icons i{
+        font-size: 22px;
+        font-weight: bold;
+        color: gray;
+    }
+    .icons{
+        position: absolute;
+        top: 0;
+        right: 1;
+    }
+    .detail th{
+        letter-spacing: 1px;
+        font-size: 18px;
+    }
+</style>
+
+            <h4 style="font-size: 20px;" >مشخصات شاگردان</h4>
+            <ol class="breadcrumb no-bg mb-1">
+                <li class="breadcrumb-item"><a href="/">خانه</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'student-list' %}">شاگردان</a></li>
+                <li class="breadcrumb-item active">{{ object.first_name }} - {{ object.last_name }} </li>
+            </ol>
+            <div class="box box-block bg-white">
+                <div class="icons">
+                    <a class="btn btn-default" href="{% url 'student-delete' object.id %}" >
+                        <i class="fa fa-times"></i>
+                    </a>
+                    <a class="btn btn-default" href="{% url 'student-update' object.id %}" > <i class="fa fa-edit"></i> </a>
+                    <a class="btn btn-default" href="#" > <i class="fa fa-print" ></i> </a>
+                </div>
+                <hr class="mt-2" >
+
+                <div class="row mx-3">
+                    <div class="col-lg-5">
+                        <table style="width: 100%;">
+                            <tr class="detail">
+                                <th>آی دی محصل</th>
+                                <th> {{ object.std_id }} </th>
+                            </tr>
+                            <tr class="detail">
+                                <th>نام</th>
+                                <th> {{ object.first_name }} </th>
+                            </tr>
+                            <tr class="detail">
+                                <th>تخلص</th>
+                                <th> {{ object.last_name }} </th>
+                            </tr>
+                            <tr class="detail">
+                                <th>نام پدر</th>
+                                <th> {{ object.father_name }} </th>
+                            </tr>
+                            <tr class="detail">
+                                <th>ایمیل آدرس</th>
+                                <th> {{ object.email }} </th>
+                            </tr>
+                            <tr class="detail">
+                                <th>نمبر تماس</th>
+                                <th> {{ object.phone }} </th>
+                            </tr>
+                            <tr class="detail">
+                                <th>جنسیت</th>
+                                <th> {{ object.gender }} </th>
+                            </tr>
+                            <tr class="detail">
+                                <th>ولایت</th>
+                                <th> {{ object.province }} </th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-lg-5">
+                        <table style="width: 100%;">
+                            <tr class="detail">
+                                <th>نمبر تذکره</th>
+                                <th> {{ object.national_id }} </th>
+                            </tr>
+                            <tr class="detail">
+                                <th>آدرس فعلی</th>
+                                <th> {{ object.current_address }} </th>
+                            </tr>
+                            <tr class="detail">
+                                <th>لیلیه</th>
+                                <th> {{ object.hostel }} </th>
+                            </tr>
+                            <tr class="detail">
+                                <th>بدل آشیه</th>
+                                <th> {{ object.budget }} </th>
+                            </tr>
+                            <tr class="detail">
+                                <th>سمستر</th>
+                                <th> {{ object.semester }} </th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-lg-2">
+                        <div style="float: left;">
+                            <img src="{{ object.image.url }}" style="width: 100px; height: 100px; border-radius: 50%;" alt="">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+{% endblock content %}

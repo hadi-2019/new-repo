@@ -1,0 +1,77 @@
+{% extends 'home/main.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h4 style="font-size: 20px;" >ثبت نام شاگرد جدید</h4>
+            <ol class="breadcrumb no-bg mb-1">
+                <li class="breadcrumb-item"><a href="/">خانه</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'student-list' %}">شاگردان</a></li>
+                <li class="breadcrumb-item active"> ثبت شاگرد </li>
+            </ol>
+<div class="box box-block bg-white">
+    <div class="container">
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+        <div class="gorm-group col-md-4 mb-0"> 
+            {{ form.std_id|as_crispy_field }}
+        </div>
+        <div class="gorm-group col-md-4 mb-0"> 
+            {{ form.first_name|as_crispy_field }}
+        </div>
+        <div class="gorm-group col-md-4 mb-0">
+            {{ form.last_name|as_crispy_field }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="gorm-group col-md-4 mb-0">
+            {{ form.father_name|as_crispy_field }}
+        </div>
+        <div class="gorm-group col-md-4 mb-0"> 
+            {{ form.email|as_crispy_field }}
+        </div>
+        <div class="gorm-group col-md-4 mb-0">
+            {{ form.phone|as_crispy_field }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="gorm-group col-md-4 mb-0">
+            {{ form.province|as_crispy_field }}
+        </div>
+        <div class="gorm-group col-md-4 mb-0"> 
+            {{ form.gender|as_crispy_field }}
+        </div>
+        <div class="gorm-group col-md-4 mb-0">
+            {{ form.national_id|as_crispy_field }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="gorm-group col-md-4 mb-0">
+            {{ form.semester|as_crispy_field }}
+        </div>
+        <div class="col-lg-8">
+            {{ form.current_address|as_crispy_field }}
+        </div>
+    </div>
+    <div class="row">
+        
+    </div>
+
+    <div class="row">
+        <div class="gorm-group col-md-2 mb-0 mx-2 "> 
+            {{ form.hostel|as_crispy_field }}
+        </div>
+        <div class="gorm-group col-md-2 mb-0">
+            {{ form.budget|as_crispy_field }}
+        </div>
+    </div>
+    <div class="gorm-group col-md-12 mb-0">
+        {{ form.image|as_crispy_field }}
+    </div>
+    <br>
+    <input type="submit" value="ذخیره" class="btn btn-success">
+</form>
+</div>
+</div>
+{% endblock content %}

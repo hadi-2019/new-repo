@@ -1,0 +1,15 @@
+{% extends 'home/main.html' %}
+{% block content %}
+
+<div class="col alert alert-info">
+    <h5>راهنمایی</h5>
+    <p> لطفا فایل آماده <a href="{% url 'download-csv' %}">CSV File</a> را دانلود کنید! </p>
+  </div>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" class="btn btn-success" value="آپلود">
+</form>
+
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends 'home/main.html' %}
+
+{% block content %}
+<div class="box box-block bg-white">
+    <p class="alert alert-danger">آیا میخواهید شاگرد مورد نظر حذف نمایید؟ دیتا حذف شده قابل بازیابی نیست</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="بلی" class="btn btn-danger" />
+        <a href="{% url 'student-detail' object.id %}" class="btn btn-primary">نخیر</a>
+    </form>
+</div>
+{% endblock content %}
